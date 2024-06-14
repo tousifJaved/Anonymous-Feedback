@@ -20,8 +20,14 @@ document.addEventListener("DOMContentLoaded", () => {
 
 			const result = await response.json();
 			if (response.ok) {
-				alert("Login successful");
-				// Redirect or other actions on successful login
+				// Login successful
+				if (role === "teacher") {
+					window.location.href = "/teacherDashboard";
+				} else if (role === "student") {
+					window.location.href = "/studentDashboard";
+				} else {
+					console.error("Unknown role:", role);
+				}
 			} else {
 				alert(result.message);
 			}

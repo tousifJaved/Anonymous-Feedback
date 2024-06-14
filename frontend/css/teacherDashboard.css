@@ -1,0 +1,156 @@
+/* General styles */
+body {
+	font-family: Arial, sans-serif;
+	margin: 0;
+	padding: 0;
+	background-color: #f0f0f0;
+}
+
+.container {
+	max-width: 800px;
+	margin: 20px auto;
+	padding: 20px;
+	background-color: #fff;
+	border-radius: 10px;
+	box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+header {
+	background-color: #333;
+	color: #fff;
+	padding: 10px 0;
+	text-align: center;
+}
+
+header nav ul {
+	list-style-type: none;
+	padding: 0;
+}
+
+header nav ul li {
+	display: inline;
+	margin-right: 20px;
+}
+
+header nav ul li a {
+	color: #fff;
+	text-decoration: none;
+	font-weight: bold;
+	font-size: 16px;
+}
+
+main {
+	padding: 20px 0;
+}
+
+h1,
+h2 {
+	margin-bottom: 20px;
+}
+
+.form-card {
+	background-color: #f9f9f9;
+	padding: 20px;
+	border-radius: 8px;
+	box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
+	margin-bottom: 20px;
+}
+
+.form-card form {
+	max-width: 400px;
+	margin: 0 auto;
+}
+
+.form-card label {
+	display: block;
+	margin-bottom: 10px;
+	font-weight: bold;
+}
+
+.form-card input[type="text"] {
+	width: calc(100% - 20px);
+	padding: 8px;
+	font-size: 14px;
+	border: 1px solid #ccc;
+	border-radius: 4px;
+}
+
+.form-card button {
+	padding: 10px 20px;
+	background-color: #007bff;
+	color: #fff;
+	border: none;
+	border-radius: 4px;
+	cursor: pointer;
+	font-size: 14px;
+}
+
+.form-card button:hover {
+	background-color: #0056b3;
+}
+
+.card-container {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 20px;
+	justify-content: flex-start;
+	align-items: flex-start;
+}
+
+.card {
+	background-color: #fff;
+	padding: 20px;
+	border-radius: 8px;
+	box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
+	text-align: center;
+	width: 100%;
+	max-width: 300px;
+	transition: transform 0.3s ease-in-out;
+}
+
+.card:hover {
+	transform: translateY(-5px);
+}
+
+.card h2 {
+	margin-bottom: 10px;
+	font-size: 18px;
+	color: #333;
+}
+
+.card p {
+	font-size: 14px;
+	color: #666;
+}
+
+.dropdown {
+	margin-bottom: 20px;
+}
+
+.dropdown label {
+	font-weight: bold;
+}
+
+.dropdown select {
+	padding: 8px;
+	font-size: 14px;
+	border: 1px solid #ccc;
+	border-radius: 4px;
+}
+
+/* Teacher Dashboard specific styles */
+.teacher-dashboard-title {
+	font-size: 24px;
+	margin-bottom: 20px;
+	text-align: center;
+}
+
+/* Hide inactive sections */
+.dashboard-section {
+	display: none;
+}
+
+/* Show active sections */
+.dashboard-section.active {
+	display: block;
+}
