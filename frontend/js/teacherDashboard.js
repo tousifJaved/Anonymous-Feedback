@@ -36,27 +36,41 @@ document.addEventListener("DOMContentLoaded", () => {
 			courseListContainer.innerHTML = ""; // Clear existing content
 
 			courses.forEach((course) => {
-				const card = document.createElement("div");
-				card.classList.add("card");
-
-				const title = document.createElement("h2");
-				title.textContent = course.courseId;
-
-				const department = document.createElement("p");
-				department.textContent = `Department: ${course.department}`;
-
-				const teacher = document.createElement("p");
-				teacher.textContent = `Created by: ${course.teacherName}`;
-
-				card.appendChild(title);
-				card.appendChild(department);
-				card.appendChild(teacher);
+				const card = createCourseCard(course); // Create course card with "See Review" button
 				courseListContainer.appendChild(card);
 			});
 		} catch (error) {
 			console.error("Error fetching courses:", error);
 			alert("An error occurred while fetching courses.");
 		}
+	};
+
+	const createCourseCard = (course) => {
+		const card = document.createElement("div");
+		card.classList.add("card");
+
+		const title = document.createElement("h2");
+		title.textContent = course.courseId;
+
+		const department = document.createElement("p");
+		department.textContent = `Department: ${course.department}`;
+
+		const teacher = document.createElement("p");
+		teacher.textContent = `Created by: ${course.teacherName}`;
+
+		const reviewButton = document.createElement("button");
+		reviewButton.textContent = "See Review";
+		reviewButton.addEventListener("click", () => {
+			// Redirect to feedback page with courseId as parameter
+			window.location.href = `/teacherFeedback.html?createdByEmail=${course.createdByEmail}&courseId=${course.courseId}`;
+		});
+
+		card.appendChild(title);
+		card.appendChild(department);
+		card.appendChild(teacher);
+		card.appendChild(reviewButton);
+
+		return card;
 	};
 
 	dashboardSelector.addEventListener("change", toggleSections);
@@ -81,6 +95,7 @@ document.addEventListener("DOMContentLoaded", () => {
 			if (response.ok) {
 				alert("Course created successfully");
 				form.reset();
+				fetchCourses(); // Refresh course list after creation
 			} else {
 				alert(result.message);
 			}

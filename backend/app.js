@@ -5,6 +5,7 @@ const session = require("express-session");
 const userRoutes = require("./routes/userRoutes");
 const courseRoutes = require("./routes/courseRoutes");
 const feedbackRoutes = require("./routes/feedbackRoutes");
+const teacherFeedbackRoute = require("./routes/teacherFeedbackRoute");
 
 const app = express();
 
@@ -28,7 +29,8 @@ app.use(express.static(path.join(__dirname, "../frontend")));
 // Routes
 app.use("/users", userRoutes);
 app.use("/courses", courseRoutes);
-app.use("/studentFeedback", feedbackRoutes); // Use feedbackRoutes for /studentFeedback route
+app.use("/studentFeedback", feedbackRoutes);
+app.use("/teacherFeedback", teacherFeedbackRoute);
 
 // Home route
 app.get("/", (req, res) => {
