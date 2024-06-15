@@ -1,10 +1,10 @@
 const express = require("express");
 const mongoose = require("mongoose");
 const path = require("path");
+const session = require("express-session");
 const userRoutes = require("./routes/userRoutes");
 const courseRoutes = require("./routes/courseRoutes");
 const feedbackRoutes = require("./routes/feedbackRoutes");
-const session = require("express-session");
 
 const app = express();
 
@@ -28,7 +28,7 @@ app.use(express.static(path.join(__dirname, "../frontend")));
 // Routes
 app.use("/users", userRoutes);
 app.use("/courses", courseRoutes);
-app.use("/feedback", feedbackRoutes);
+app.use("/studentFeedback", feedbackRoutes); // Use feedbackRoutes for /studentFeedback route
 
 // Home route
 app.get("/", (req, res) => {

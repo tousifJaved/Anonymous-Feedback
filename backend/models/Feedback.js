@@ -1,18 +1,19 @@
 const mongoose = require("mongoose");
+const Schema = mongoose.Schema;
 
-const FeedbackSchema = new mongoose.Schema({
-	studentId: {
-		type: mongoose.Schema.Types.ObjectId,
-		ref: "Student",
-		required: true,
+const feedbackSchema = new Schema({
+	teacherEmail: { type: String, required: true },
+	courseCode: { type: String, required: true },
+	ratings: {
+		teachingStyle: { type: Number, required: true },
+		courseContent: { type: Number, required: true },
+		courseDifficulty: { type: Number, required: true },
+		teacherSincerity: { type: Number, required: true },
+		studentEngagement: { type: Number, required: true },
 	},
-	courseId: {
-		type: mongoose.Schema.Types.ObjectId,
-		ref: "Course",
-		required: true,
-	},
-	feedback: { type: String, required: true },
-	// Add any additional fields as needed
+	comment: { type: String },
 });
 
-module.exports = mongoose.model("Feedback", FeedbackSchema);
+const Feedback = mongoose.model("Feedback", feedbackSchema);
+
+module.exports = Feedback;

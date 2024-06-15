@@ -1,45 +1,46 @@
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<link rel="stylesheet" href="/css/styles.css" />
-		<link rel="stylesheet" href="/css/studentDashboard.css" />
-		<title>Student Dashboard</title>
-	</head>
-	<body>
-		<header>
-			<h1 class="student-dashboard-title">Student Dashboard</h1>
-			<nav>
-				<ul>
-					<li><a href="/" id="homeButton">Home</a></li>
-				</ul>
-			</nav>
-		</header>
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/css/styles.css" />
+    <link rel="stylesheet" href="/css/studentDashboard.css" />
+    <title>Student Dashboard</title>
+</head>
+<body>
+    <header>
+        <h1 class="student-dashboard-title">Student Dashboard</h1>
+        <nav>
+            <ul>
+                <li><a href="/" id="homeButton">Home</a></li>
+            </ul>
+        </nav>
+    </header>
 
-		<main>
-			<div class="container">
-				<div class="filter-section">
-					<label for="departmentFilter">Department:</label>
-					<input
-						type="text"
-						id="departmentFilter"
-						placeholder="Enter department" />
+    <main>
+        <div class="container">
+            <div class="filter-section">
+                <label for="departmentFilter">Department:</label>
+                <input
+                    type="text"
+                    id="departmentFilter"
+                    placeholder="Enter department" />
 
-					<label for="teacherFilter">Teacher Name:</label>
-					<input
-						type="text"
-						id="teacherFilter"
-						placeholder="Enter teacher name" />
+                <label for="teacherFilter">Teacher Name:</label>
+                <input
+                    type="text"
+                    id="teacherFilter"
+                    placeholder="Enter teacher name" />
 
-					<button id="filterButton">Filter</button>
-				</div>
+                <button id="filterButton">Filter</button>
+            </div>
 
-				<div id="courseList" class="card-container">
-					<!-- Courses will be dynamically added here -->
-				</div>
-			</div>
-		</main>
-		<script defer src="/js/studentDashboard.js"></script>
-	</body>
+            <div id="courseList" class="card-container">
+                <!-- Courses will be dynamically added here -->
+            </div>
+        </div>
+    </main>
+
+    <script defer src="/js/studentDashboard.js"></script>
+</body>
 </html>

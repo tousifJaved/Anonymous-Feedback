@@ -3,6 +3,7 @@ document.addEventListener("DOMContentLoaded", () => {
 	const filterButton = document.getElementById("filterButton");
 	const departmentFilter = document.getElementById("departmentFilter");
 	const teacherFilter = document.getElementById("teacherFilter");
+	const courseListContainer = document.getElementById("courseList");
 
 	const fetchCourses = async (department = "", teacherName = "") => {
 		try {
@@ -19,7 +20,6 @@ document.addEventListener("DOMContentLoaded", () => {
 			}
 
 			const courses = await response.json();
-			const courseListContainer = document.getElementById("courseList");
 
 			courseListContainer.innerHTML = ""; // Clear existing content
 
@@ -36,9 +36,18 @@ document.addEventListener("DOMContentLoaded", () => {
 				const teacher = document.createElement("p");
 				teacher.textContent = `Created by: ${course.teacherName}`;
 
+				// Create a "Give Review" button
+				const reviewButton = document.createElement("button");
+				reviewButton.textContent = "Give Review";
+				reviewButton.addEventListener("click", () => {
+					window.location.href = `/feedbackForm.html?courseId=${course._id}`;
+				});
+
 				card.appendChild(title);
 				card.appendChild(department);
 				card.appendChild(teacher);
+				card.appendChild(reviewButton);
+
 				courseListContainer.appendChild(card);
 			});
 		} catch (error) {

@@ -1,6 +1,5 @@
 const express = require("express");
 const router = express.Router();
-const bcrypt = require("bcrypt");
 const Teacher = require("../models/Teacher");
 const Student = require("../models/Student");
 
@@ -19,20 +18,17 @@ router.post("/register/:role", async (req, res) => {
 			return res.status(400).json({ message: "Email already registered" });
 		}
 
-		// Hash the password
-		const hashedPassword = await bcrypt.hash(password, 10);
-
 		// Create new user based on role
 		let newUser;
 		if (role === "teacher") {
 			newUser = new Teacher({
 				name,
 				email,
-				password: hashedPassword,
+				password, // Save password as plain text
 				department,
 			});
 		} else if (role === "student") {
-			newUser = new Student({ name, email, password: hashedPassword, roll });
+			newUser = new Student({ name, email, password, roll }); // Save password as plain text
 		} else {
 			return res.status(400).json({ message: "Invalid role" });
 		}
@@ -59,8 +55,8 @@ router.post("/login/:role", async (req, res) => {
 			return res.status(401).json({ message: "Invalid credentials" });
 		}
 
-		const passwordMatch = await bcrypt.compare(password, user.password);
-		if (!passwordMatch) {
+		if (password !== user.password) {
+			// Check the password directly
 			return res.status(401).json({ message: "Invalid credentials" });
 		}
 
