@@ -16,10 +16,10 @@ app.use(express.urlencoded({ extended: false }));
 // Configure session middleware
 app.use(
 	session({
-		secret: "secret", // Change this to a more secure secret
+		secret: "secret",
 		resave: false,
 		saveUninitialized: false,
-		cookie: { secure: false }, // Set secure: true if using HTTPS
+		cookie: { secure: false },
 	})
 );
 

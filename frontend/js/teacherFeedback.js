@@ -61,13 +61,13 @@ document.addEventListener("DOMContentLoaded", () => {
 		}
 
 		// Add scroll functionality to the feedback container
-		feedbackContainer.style.overflowY = "auto"; // Enable vertical scrolling
-		feedbackContainer.style.maxHeight = "70vh"; // Set maximum height to limit scroll area
+		feedbackContainer.style.overflowY = "auto"; 
+		feedbackContainer.style.maxHeight = "70vh";
 
 		// Smooth scrolling behavior within the feedback container
 		feedbackContainer.addEventListener("wheel", (event) => {
 			event.preventDefault();
-			const scrollStep = 50; // Adjust scrolling speed as needed
+			const scrollStep = 50; 
 			feedbackContainer.scrollTop +=
 				event.deltaY > 0 ? scrollStep : -scrollStep;
 		});

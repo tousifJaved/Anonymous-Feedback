@@ -24,11 +24,11 @@ router.post("/register/:role", async (req, res) => {
 			newUser = new Teacher({
 				name,
 				email,
-				password, // Save password as plain text
+				password,
 				department,
 			});
 		} else if (role === "student") {
-			newUser = new Student({ name, email, password, roll }); // Save password as plain text
+			newUser = new Student({ name, email, password, roll });
 		} else {
 			return res.status(400).json({ message: "Invalid role" });
 		}
@@ -56,14 +56,13 @@ router.post("/login/:role", async (req, res) => {
 		}
 
 		if (password !== user.password) {
-			// Check the password directly
 			return res.status(401).json({ message: "Invalid credentials" });
 		}
 
 		req.session.user = {
 			id: user._id,
 			email: user.email,
-			name: user.name, // Add the name to the session
+			name: user.name,
 			role: role,
 		};
 
@@ -82,7 +81,7 @@ router.post("/logout", (req, res) => {
 			return res.status(500).json({ message: "Internal server error" });
 		}
 
-		res.clearCookie("connect.sid"); // Assuming 'connect.sid' is the cookie name
+		res.clearCookie("connect.sid");
 		res.status(200).json({ message: "Logout successful" });
 	});
 });

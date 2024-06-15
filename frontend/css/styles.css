@@ -1,11 +1,9 @@
-/* Reset CSS */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-/* Basic styling */
 body {
     font-family: Arial, sans-serif;
     background-color: #f0f0f0;
@@ -56,14 +54,14 @@ nav ul li a:hover {
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     text-align: center;
-    width: 300px; /* Adjust the width as needed */
+    width: 300px; 
     margin: auto;
-    position: relative; /* Allows positioning of the home button */
+    position: relative; 
 }
 
 .home-button {
     position: absolute;
-    bottom: -20px; /* Adjust the bottom position to place it at the bottom */
+    bottom: -20px;
     left: 50%;
     transform: translateX(-50%);
 }

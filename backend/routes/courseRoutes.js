@@ -6,7 +6,7 @@ const Course = require("../models/course");
 router.post("/create", async (req, res) => {
 	const { department, courseId } = req.body;
 	const createdByEmail = req.session.user.email;
-	const teacherName = req.session.user.name; // Get teacher name from session
+	const teacherName = req.session.user.name;
 
 	try {
 		const newCourse = new Course({

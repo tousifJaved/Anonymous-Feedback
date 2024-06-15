@@ -1,32 +1,27 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/css/styles.css"> <!-- Link your main stylesheet -->
-    <link rel="stylesheet" href="/css/teacherFeedback.css"> <!-- Link your teacherFeedback specific stylesheet -->
-    <title>Teacher Feedback</title>
-</head>
-<body>
-    <header>
-        <h1 class="teacher-feedback-title">Course Feedback</h1>
-        <nav>
-            <ul>
-                <li><a href="/teacherDashboard" id="homeButton">Home</a></li>
-            </ul>
-        </nav>
-    </header>
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link rel="stylesheet" href="/css/styles.css" />
+		<link rel="stylesheet" href="/css/teacherFeedback.css" />
+		<title>Teacher Feedback</title>
+	</head>
+	<body>
+		<header>
+			<h1 class="teacher-feedback-title">Course Feedback</h1>
+			<nav>
+				<ul>
+					<li><a href="/teacherDashboard" id="homeButton">Home</a></li>
+				</ul>
+			</nav>
+		</header>
 
-    <main>
-        <div class="container">
-            <div id="feedbackList" class="feedback-container">
-                <!-- Feedback cards will be dynamically added here -->
-            </div>
-        </div>
-    </main>
-
-    <button class="scroll-to-top-btn" id="scrollToTopBtn">Scroll to Top</button> <!-- Scroll-to-top button -->
-
-    <script defer src="/js/teacherFeedback.js"></script> <!-- Link your JavaScript file -->
-</body>
+		<main>
+			<div class="container">
+				<div id="feedbackList" class="feedback-container"></div>
+			</div>
+		</main>
+		<script defer src="/js/teacherFeedback.js"></script>
+	</body>
 </html>
