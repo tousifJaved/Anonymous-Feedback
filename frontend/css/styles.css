@@ -8,7 +8,7 @@ body {
     font-family: Arial, sans-serif;
     background-color: #f0f0f0;
     display: flex;
-    justify-content: center;
+    flex-direction: column; /* Changed to column to stack items vertically */
     align-items: center;
     height: 100vh;
 }
@@ -17,6 +17,7 @@ header {
     background-color: #333;
     color: #fff;
     padding: 10px 0;
+    width: 100%; /* Ensure header spans the full width */
     text-align: center;
 }
 
@@ -43,9 +44,9 @@ nav ul li a:hover {
 
 .container {
     display: flex;
-    justify-content: center;
+    flex-direction: column;
     align-items: center;
-    height: 100%;
+    width: 100%;
 }
 
 .card, .form-card {
@@ -55,15 +56,13 @@ nav ul li a:hover {
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     text-align: center;
     width: 300px; 
-    margin: auto;
+    margin: 20px 0;
     position: relative; 
 }
 
 .home-button {
-    position: absolute;
-    bottom: -20px;
-    left: 50%;
-    transform: translateX(-50%);
+    margin: 20px 0; /* Add margin for spacing */
+    text-align: center; /* Center the button */
 }
 
 .button-group {
