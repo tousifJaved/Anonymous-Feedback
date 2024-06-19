@@ -1,6 +1,4 @@
 # Anonymous-Feedback
-# Student Feedback Web Project
-
 Welcome to the Student Feedback Web Project! This web application allows students to provide feedback on courses and instructors, and enables teachers to create courses and view student reviews. The project is built with a focus on user roles, ensuring that both students and teachers have the necessary functionalities to interact effectively.
 
 ## Table of Contents
