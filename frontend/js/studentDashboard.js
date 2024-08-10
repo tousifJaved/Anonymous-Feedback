@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", () => {
-	const homeButton = document.getElementById("homeButton");
+	const homeButton = document.getElementById("home-button");
 	const filterButton = document.getElementById("filterButton");
 	const departmentFilter = document.getElementById("departmentFilter");
 	const teacherFilter = document.getElementById("teacherFilter");
@@ -40,7 +40,7 @@ document.addEventListener("DOMContentLoaded", () => {
 				const reviewButton = document.createElement("button");
 				reviewButton.textContent = "Give Review";
 				reviewButton.addEventListener("click", () => {
-					window.location.href = `/feedbackForm.html?courseId=${course._id}`;
+					window.location.href = `/feedbackForm.html?courseCode=${course.courseId}&teacherEmail=${course.createdByEmail}`;
 				});
 
 				card.appendChild(title);
@@ -57,8 +57,8 @@ document.addEventListener("DOMContentLoaded", () => {
 	};
 
 	filterButton.addEventListener("click", () => {
-		const department = departmentFilter.value;
-		const teacherName = teacherFilter.value;
+		const department = departmentFilter.value.trim();
+		const teacherName = teacherFilter.value.trim();
 		fetchCourses(department, teacherName);
 	});
 
@@ -84,6 +84,5 @@ document.addEventListener("DOMContentLoaded", () => {
 		}
 	});
 
-	// Initial fetch to display all courses
 	fetchCourses();
 });

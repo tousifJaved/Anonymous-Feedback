@@ -1,57 +1,88 @@
 * {
-    box-sizing: border-box;
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
 }
 
 body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 100vh;
+    background-color: #edf2ee;
     font-family: Arial, sans-serif;
     line-height: 1.6;
-    background-color: #f0f0f0;
+}
+
+#home-button {
+    font-size: large;
+    margin: 10px;
+    border: 1px solid black;
+    background-color: #daf7a6;
+    color: #2c3e50;
+    border-radius: 5px;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+#home-button a {
+    text-decoration: none;
+    color: inherit;
+}
+
+#home-button:hover {
+    transform: scale(1.05);
 }
 
 .container {
     max-width: 960px;
-    margin: 20px auto;
+    margin: 20px;
     padding: 20px;
-    background-color: #fff;
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
-.teacher-feedback-title {
-    text-align: center;
-    margin-bottom: 20px;
-    color: #333;
-}
-
 .feedback-container {
     display: flex;
-    overflow-x: auto;
-    max-width: 100%;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: flex-start;
 }
 
 .feedback-card {
-    flex: 0 0 auto;
-    margin-right: 10px;
     padding: 20px;
-    background-color: #f9f9f9;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+    background-color: #ecf0f1;
+    border: 1px solid #34495e;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    width: 320px;
+    height: 250px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin: 10px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.feedback-card:hover {
+    transform: scale(1.03);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
 }
 
 .feedback-card h2 {
-    font-size: 18px;
+    font-size: 20px;
     margin-bottom: 10px;
+    color: #2c3e50;
 }
 
 .feedback-card p {
-    margin-bottom: 10px;
-}
-
-.feedback-card .ratings {
-    margin-bottom: 10px;
+    margin-bottom: 15px;
+    font-size: 16px;
+    color: #333;
 }
 
 .feedback-card .comment {
@@ -59,38 +90,9 @@ body {
     color: #666;
 }
 
-/* Responsive adjustments */
-@media (max-width: 768px) {
-    .container {
-        padding: 10px;
-    }
-
-    .feedback-container {
-        flex-direction: column;
-    }
+.feedback-card .ratings {
+    margin-bottom: 10px;
+    font-weight: bold;
+    color: #2980b9;
 }
 
-/* Scroll-to-top button */
-.scroll-to-top-btn {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    display: none;
-    /* Hide by default */
-    background-color: #007bff;
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    cursor: pointer;
-    border-radius: 4px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-}
-
-.scroll-to-top-btn.show {
-    display: block;
-    /* Show button when needed */
-}
-
-.scroll-to-top-btn:hover {
-    background-color: #0056b3;
-}

@@ -61,7 +61,6 @@ document.addEventListener("DOMContentLoaded", () => {
 		const reviewButton = document.createElement("button");
 		reviewButton.textContent = "See Review";
 		reviewButton.addEventListener("click", () => {
-			// Redirect to feedback page with courseId as parameter
 			window.location.href = `/teacherFeedback.html?createdByEmail=${course.createdByEmail}&courseId=${course.courseId}`;
 		});
 

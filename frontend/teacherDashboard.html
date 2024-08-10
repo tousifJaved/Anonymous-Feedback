@@ -1,61 +1,49 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/css/styles.css">
-    <link rel="stylesheet" href="/css/teacherDashboard.css"> 
-    <title>Teacher Dashboard</title>
-</head>
-<body>
-    <header>
-        <h1 class="teacher-dashboard-title">Teacher Dashboard</h1>
-        <nav>
-            <ul>
-                <li><a href="/" id="homeButton">Home</a></li>
-            </ul>
-        </nav>
-    </header>
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link rel="stylesheet" href="/css/styles.css" />
+		<link rel="stylesheet" href="/css/teacherDashboard.css" />
+		<title>Teacher Dashboard</title>
+	</head>
+	<body>
+		<div id="home-button">
+			<a href="/" id="home">Home</a>
+		</div>
 
-    <main>
-        <div class="container">
-            <!-- Dropdown to select dashboard section -->
-            <div class="dropdown">
-                <label for="dashboardSelector">Select Dashboard:</label>
-                <select id="dashboardSelector">
-                    <option value="createCourse" selected>Create Course</option>
-                    <option value="createdCourses">Created Courses</option>
-                </select>
-            </div>
+		<div class="container">
+			<div class="dropdown">
+				<select id="dashboardSelector">
+					<option value="createCourse" selected>Create Course</option>
+					<option value="createdCourses">Created Courses</option>
+				</select>
+			</div>
 
-            <!-- Section to create a new course -->
-            <div id="createCourseSection" class="dashboard-section">
-                <h2>Create Course</h2>
-                <div class="form-card">
-                    <form id="createCourseForm">
-                        <div>
-                            <label for="department">Department:</label>
-                            <input type="text" id="department" name="department" required />
-                        </div>
-                        <div>
-                            <label for="courseId">Course ID:</label>
-                            <input type="text" id="courseId" name="courseId" required />
-                        </div>
-                        <button type="submit">Create Course</button>
-                    </form>
-                </div>
-            </div>
+			<div id="createCourseSection" class="dashboard-section active">
+				<h2>Create Course</h2>
+				<div class="form-card">
+					<form id="createCourseForm">
+						<div>
+							<label for="department">Department:</label>
+							<input type="text" id="department" name="department" required />
+						</div>
+						<div>
+							<label for="courseId">Course ID:</label>
+							<input type="text" id="courseId" name="courseId" required />
+						</div>
+						<button type="submit" class="button">Create Course</button>
+					</form>
+				</div>
+			</div>
 
-            <!-- Section to display created courses -->
-            <div id="createdCoursesSection" class="dashboard-section">
-                <h2>Created Courses</h2>
-                <div id="courseList" class="card-container">
-                    <!-- Courses will be dynamically added here -->
-                </div>
-            </div>
-        </div>
-    </main>
+			<div id="createdCoursesSection" class="dashboard-section">
+				<h2>Created Courses</h2>
+				<div id="courseList" class="card-container">
+				</div>
+			</div>
+		</div>
 
-    <script defer src="/js/teacherDashboard.js"></script>
-</body>
+		<script defer src="/js/teacherDashboard.js"></script>
+	</body>
 </html>

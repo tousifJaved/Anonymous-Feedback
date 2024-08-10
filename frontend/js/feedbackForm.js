@@ -1,6 +1,11 @@
 document.addEventListener("DOMContentLoaded", () => {
 	const feedbackForm = document.getElementById("feedbackForm");
 
+	// Parse URL parameters
+	const urlParams = new URLSearchParams(window.location.search);
+	const courseCode = urlParams.get("courseCode");
+	const teacherEmail = urlParams.get("teacherEmail");
+
 	feedbackForm.addEventListener("submit", async (event) => {
 		event.preventDefault();
 
@@ -23,10 +28,8 @@ document.addEventListener("DOMContentLoaded", () => {
 			).value,
 		};
 
-		// Extract comment and other fields
+		// Extract comment
 		const comment = document.getElementById("comment").value;
-		const teacherEmail = document.getElementById("teacherEmail").value;
-		const courseCode = document.getElementById("courseCode").value;
 
 		console.log("Submitting feedback:", {
 			ratings,
@@ -49,7 +52,7 @@ document.addEventListener("DOMContentLoaded", () => {
 			}
 
 			const result = await response.json();
-			alert(result.message); // Alert the message from the server
+			alert(result.message);
 			window.location.href = "/studentDashboard"; // Redirect to student dashboard
 		} catch (error) {
 			console.error("Error submitting feedback:", error);
