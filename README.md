@@ -66,7 +66,7 @@ Before you begin, ensure you have met the following requirements:
 3. Start the server:
 
    ```sh
-   nodemon server.js
+   nodemon app.js
    ```
   - If this doesn't work, use :
    ```sh
