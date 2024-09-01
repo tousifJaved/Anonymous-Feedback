@@ -11,7 +11,7 @@ body {
 	align-items: center;
 	width: 100vw;
 	height: 100vh;
-	background-color: #edf2ee;
+	background: linear-gradient(to right, #e2e2e2, #c9d6ff);
 }
 
 header {
@@ -109,7 +109,6 @@ nav ul li a:hover {
 	margin-right: auto;
 }
 
-
 .form-card:hover {
 	transform: scale(1.05);
 	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
@@ -186,22 +185,27 @@ button:hover {
 }
 
 #home-button {
-	font-size: large;
+	font-size: 1.2rem;
 	margin: 10px;
-	border: 1px solid black;
+	padding: 10px 20px;
+	border: none;
 	background-color: #daf7a6;
 	color: #2c3e50;
-	border-radius: 5px;
+	border-radius: 8px;
+	cursor: pointer;
 	transition: background-color 0.3s ease, transform 0.3s ease;
+	font-weight: 600;
+	letter-spacing: 0.5px;
 }
 
 #home-button:hover {
 	transform: scale(1.05);
+	background-color: #c7f09d;
 }
 
 #home {
-	font-family: Arial, Helvetica, sans-serif;
-	font-weight: 500;
+	font-weight: 600;
+	font-size: 1rem;
 }
 
 a {

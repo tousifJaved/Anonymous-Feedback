@@ -1,34 +1,70 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="/css/homeStyle.css" />
-    <title>Home</title>
-  </head>
-  <body>
-    <div id="home-button">
-      <a href="/" id="home">Home</a>
-    </div>
 
-    <div class="card">
-      <h2>Login as</h2>
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<link rel="stylesheet" href="/css/homeStyle.css" />
+	<title>Home</title>
+</head>
 
-      <div class="button-group">
-        <a href="/login.html?role=teacher" class="button">Teacher Login</a>
-        <a href="/login.html?role=student" class="button">Student Login</a>
-      </div>
+<body>
+	<div id="home-button">
+		<a href="/" id="home">Home</a>
+	</div>
 
-      <h2>Register as</h2>
+	<div class="container">
+		<div class="form-container left-side">
+			<a href="#" id="teacher-toggle" class="button">Teacher</a>
+			<div id="teacher-options" class="hidden">
+				<a href="/login.html?role=teacher" class="button hidden" id="teacherLogin">Teacher Login</a>
+				<a href="/register.html?role=teacher" class="button hidden" id="teacherRegistration">Teacher
+					Registration</a>
+			</div>
+		</div>
 
-      <div class="button-group">
-        <a href="/register.html?role=teacher" class="button"
-          >Teacher Registration</a
-        >
-        <a href="/register.html?role=student" class="button"
-          >Student Registration</a
-        >
-      </div>
-    </div>
-  </body>
+		<div class="form-container right-side">
+			<a href="#" id="student-toggle" class="button">Student</a>
+			<div id="student-options" class="hidden">
+				<a href="/login.html?role=student" class="button hidden" id="studentLogin">Student Login</a>
+				<a href="/register.html?role=student" class="button hidden" id="studentRegistration">Student
+					Registration</a>
+			</div>
+		</div>
+	</div>
+
+	<script>
+		document.addEventListener("DOMContentLoaded", function () {
+			const teacherToggle = document.getElementById("teacher-toggle");
+			const studentToggle = document.getElementById("student-toggle");
+			const teacherLogin = document.getElementById("teacherLogin");
+			const teacherRegistration = document.getElementById(
+				"teacherRegistration"
+			);
+			const studentLogin = document.getElementById("studentLogin");
+			const studentRegistration = document.getElementById(
+				"studentRegistration"
+			);
+
+			teacherToggle.addEventListener("click", function () {
+				teacherToggle.classList.add("hidden");
+				teacherLogin.classList.remove("hidden");
+				teacherRegistration.classList.remove("hidden");
+				studentLogin.classList.add("hidden");
+				studentRegistration.classList.add("hidden");
+				studentToggle.classList.remove("hidden");
+			});
+
+			studentToggle.addEventListener("click", function () {
+				studentToggle.classList.add("hidden");
+				studentLogin.classList.remove("hidden");
+				studentRegistration.classList.remove("hidden");
+				teacherLogin.classList.add("hidden");
+				teacherRegistration.classList.add("hidden");
+				teacherToggle.classList.remove("hidden");
+			});
+		});
+	</script>
+</body>
+
 </html>

@@ -1,46 +1,49 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="/css/styles.css" />
-    <link rel="stylesheet" href="/css/teacherDashboard.css" />
-    <title>Teacher Dashboard</title>
-  </head>
-  <body>
-    <div id="home-button">
-      <a href="/" id="home">Home</a>
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="/css/styles.css" />
+  <link rel="stylesheet" href="/css/teacherDashboard.css" />
+  <title>Teacher Dashboard</title>
+</head>
+
+<body>
+  <div id="home-button">
+    <a href="/" id="home">Home</a>
+  </div>
+
+  <div class="container">
+    <div class="dropdown">
+      <select id="dashboardSelector">
+        <option value="createCourse" selected>Create Course</option>
+        <option value="createdCourses">Created Courses</option>
+      </select>
     </div>
 
-    <div class="container">
-      <div class="dropdown">
-        <select id="dashboardSelector">
-          <option value="createCourse" selected>Create Course</option>
-          <option value="createdCourses">Created Courses</option>
-        </select>
-      </div>
-
-      <div id="createCourseSection" class="dashboard-section active">
-        <div class="form-card">
-          <form id="createCourseForm">
-            <div>
-              <label for="department">Department:</label>
-              <input type="text" id="department" name="department" required />
-            </div>
-            <div>
-              <label for="courseId">Course ID:</label>
-              <input type="text" id="courseId" name="courseId" required />
-            </div>
-            <button type="submit" class="button">Create Course</button>
-          </form>
-        </div>
-      </div>
-
-      <div id="createdCoursesSection" class="dashboard-section">
-        <div id="courseList" class="card-container"></div>
+    <div id="createCourseSection" class="dashboard-section active">
+      <div class="form-card">
+        <form id="createCourseForm">
+          <div>
+            <label for="department">Department:</label>
+            <input type="text" id="department" name="department" required />
+          </div>
+          <div>
+            <label for="courseId">Course ID:</label>
+            <input type="text" id="courseId" name="courseId" required />
+          </div>
+          <button type="submit" class="button">Create Course</button>
+        </form>
       </div>
     </div>
 
-    <script defer src="/js/teacherDashboard.js"></script>
-  </body>
+    <div id="createdCoursesSection" class="dashboard-section">
+      <div id="courseList" class="card-container"></div>
+    </div>
+  </div>
+
+  <script defer src="/js/teacherDashboard.js"></script>
+</body>
+
 </html>
