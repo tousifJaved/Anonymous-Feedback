@@ -11,7 +11,7 @@ body {
 	align-items: center;
 	width: 100vw;
 	height: 100vh;
-	background: linear-gradient(to right, #5c6bc0, #512da8);
+	background: linear-gradient(to right, #b2b2ec, #9fa8da);
 }
 
 #home-button {
@@ -56,7 +56,6 @@ a {
 	width: 320px;
 	transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
-
 .card:hover {
 	transform: scale(1.05);
 	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
