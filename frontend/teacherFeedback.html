@@ -13,10 +13,19 @@
         <a href="/teacherdashboard" id="home">Back</a>
     </div>
 
-    <div class="container">
-        <div id="feedbackList" class="feedback-container">
-
+    <div class="summary-dashboard">
+        <h2>Feedback Summary</h2>
+        <div class="summary-content">
+            <p><strong>Teaching Style:</strong> <span id="avg-teachingStyle">N/A</span></p>
+            <p><strong>Course Content:</strong> <span id="avg-courseContent">N/A</span></p>
+            <p><strong>Course Difficulty:</strong> <span id="avg-courseDifficulty">N/A</span></p>
+            <p><strong>Teacher Sincerity:</strong> <span id="avg-teacherSincerity">N/A</span></p>
+            <p><strong>Student Engagement:</strong> <span id="avg-studentEngagement">N/A</span></p>
         </div>
+    </div>
+
+    <div class="container">
+        <div id="feedbackList" class="feedback-container"></div>
     </div>
 
     <script defer src="/js/teacherFeedback.js"></script>

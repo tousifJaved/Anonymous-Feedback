@@ -21,7 +21,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 			const courses = await response.json();
 
-			courseListContainer.innerHTML = ""; // Clear existing content
+			courseListContainer.innerHTML = "";
 
 			courses.forEach((course) => {
 				const card = document.createElement("div");
@@ -36,7 +36,6 @@ document.addEventListener("DOMContentLoaded", () => {
 				const teacher = document.createElement("p");
 				teacher.textContent = `Created by: ${course.teacherName}`;
 
-				// Create a "Give Review" button
 				const reviewButton = document.createElement("button");
 				reviewButton.textContent = "Give Review";
 				reviewButton.addEventListener("click", () => {
