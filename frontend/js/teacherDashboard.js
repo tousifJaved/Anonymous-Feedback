@@ -132,6 +132,5 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     });
 
-    // Initial toggle to set the correct section based on default selection
     toggleSections();
 });
