@@ -9,23 +9,13 @@ body {
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
-	width: 100%;
-	height: 100%;
+	width: 100vw;
+	height: 100vh;
 	background: linear-gradient(to right, #e2e2e2, #c9d6ff);
 	font-family: Arial, sans-serif;
 	line-height: 1.6;
 }
-.summary-dashboard {
-	padding: 20px;
-	background-color: #ecf0f1;
-	border: 1px solid #34495e;
-	border-radius: 10px;
-	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-	width: 290px;
-	height: auto;
-	margin: 10px;
-	text-align: center;
-}
+
 #home-button {
 	font-size: 1.2rem;
 	margin: 10px;
@@ -81,33 +71,14 @@ body {
 	border-radius: 10px;
 	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 	width: 310px;
-	height: auto;
+	height: 290px;
 	display: flex;
 	flex-direction: column;
-	justify-content: space-between;
+	justify-content: center;
 	align-items: center;
 	text-align: center;
 	margin: 10px;
 	transition: transform 0.3s ease, box-shadow 0.3s ease;
-	overflow: hidden;
-}
-
-.feedback-card .comment {
-	font-style: italic;
-	color: #161616;
-	max-height: 120px;
-	overflow-y: auto;
-	width: 100%;
-	padding-right: 10px;
-}
-
-.feedback-card .comment::-webkit-scrollbar {
-	width: 8px;
-}
-
-.feedback-card .comment::-webkit-scrollbar-thumb {
-	background-color: #7f8c8d;
-	border-radius: 4px;
 }
 
 .feedback-card:hover {
@@ -125,6 +96,11 @@ body {
 	margin-bottom: 15px;
 	font-size: 16px;
 	color: #333;
+}
+
+.feedback-card .comment {
+	font-style: italic;
+	color: #161616;
 }
 
 .feedback-card .ratings {
