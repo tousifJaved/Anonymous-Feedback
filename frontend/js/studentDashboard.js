@@ -55,6 +55,12 @@ document.addEventListener("DOMContentLoaded", () => {
 		}
 	};
 
+	filterButton.addEventListener("click", () => {
+		const department = departmentFilter.value.trim();
+		const teacherName = teacherFilter.value.trim();
+		fetchCourses(department, teacherName);
+	});
+
 	homeButton.addEventListener("click", async (event) => {
 		event.preventDefault();
 
