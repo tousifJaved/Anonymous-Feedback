@@ -1,6 +1,5 @@
 * {
 <<<<<<< HEAD
-<<<<<<< HEAD
 	margin: 0;
 	padding: 0;
 	box-sizing: border-box;
@@ -48,15 +47,6 @@ body {
 }
 
 body {
-=======
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: "Lato", sans-serif;
-}
-
-body {
->>>>>>> parent of eedeb71 (Update 3.0)
   height: 100vh;
   display: flex;
   align-items: center;
@@ -169,9 +159,6 @@ p {
   font-size: 1rem;
   color: white;
   margin-left: 5px;
-<<<<<<< HEAD
->>>>>>> parent of eedeb71 (Update 3.0)
-=======
 >>>>>>> parent of eedeb71 (Update 3.0)
 }
 
