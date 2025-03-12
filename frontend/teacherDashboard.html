@@ -1,49 +1,46 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="stylesheet" href="/css/styles.css" />
-  <link rel="stylesheet" href="/css/teacherDashboard.css" />
-  <title>Teacher Dashboard</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="stylesheet" href="/css/teacherDashboard.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <title>Teacher Dashboard</title>
 </head>
-
 <body>
-  <div id="home-button">
-    <a href="/" id="home">Home</a>
-  </div>
-
-  <div class="container">
-    <div class="dropdown">
-      <select id="dashboardSelector">
-        <option value="createCourse" selected>Create Course</option>
-        <option value="createdCourses">Created Courses</option>
-      </select>
+    <div id="home-button">
+        <a href="/" id="home">Home</a>
     </div>
 
-    <div id="createCourseSection" class="dashboard-section active">
-      <div class="form-card">
-        <form id="createCourseForm">
-          <div>
-            <label for="department">Department:</label>
-            <input type="text" id="department" name="department" required />
-          </div>
-          <div>
-            <label for="courseId">Course ID:</label>
-            <input type="text" id="courseId" name="courseId" required />
-          </div>
-          <button type="submit" class="button">Create Course</button>
-        </form>
-      </div>
+    <div class="container">
+        <div id="courseList" class="card-container"></div>
     </div>
 
-    <div id="createdCoursesSection" class="dashboard-section">
-      <div id="courseList" class="card-container"></div>
+    <!-- Create Course Modal -->
+    <div id="createCourseModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Create New Course</h2>
+            <form id="createCourseForm">
+                <div class="form-group">
+                    <label for="department">Department:</label>
+                    <input type="text" id="department" name="department" placeholder="Enter department name" required>
+                </div>
+                <div class="form-group">
+                    <label for="courseId">Course ID:</label>
+                    <input type="text" id="courseId" name="courseId" placeholder="Enter course ID" required>
+                </div>
+                <button type="submit" class="submit-btn">Create Course</button>
+            </form>
+        </div>
     </div>
-  </div>
 
-  <script defer src="/js/teacherDashboard.js"></script>
+    <!-- Floating Action Button -->
+    <button id="addCourseBtn" class="fab" title="Create New Course">
+        <i class="fas fa-plus"></i>
+    </button>
+
+    <script src="/js/teacherDashboard.js"></script>
 </body>
-
 </html>

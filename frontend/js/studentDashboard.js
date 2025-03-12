@@ -1,87 +1,95 @@
 document.addEventListener("DOMContentLoaded", () => {
-	const homeButton = document.getElementById("home-button");
-	const filterButton = document.getElementById("filterButton");
-	const departmentFilter = document.getElementById("departmentFilter");
-	const teacherFilter = document.getElementById("teacherFilter");
-	const courseListContainer = document.getElementById("courseList");
+  const homeButton = document.getElementById("home-button");
+  const filterButton = document.getElementById("filterButton");
+  const departmentFilter = document.getElementById("departmentFilter");
+  const teacherFilter = document.getElementById("teacherFilter");
+  const courseListContainer = document.getElementById("courseList");
 
-	const fetchCourses = async (department = "", teacherName = "") => {
-		try {
-			let url = `/courses/all?department=${department}&teacherName=${teacherName}`;
-			const response = await fetch(url, {
-				method: "GET",
-				headers: {
-					"Content-Type": "application/json",
-				},
-			});
+  const std_id = window.location.pathname.split("/")[2]; 
+  const fetchCourses = async (department = "", teacherName = "") => {
+    try {
+      let url = `/courses/all?department=${department}&teacherName=${teacherName}`;
+      const response = await fetch(url, {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
 
-			if (!response.ok) {
-				throw new Error("Failed to fetch courses");
-			}
+      if (!response.ok) {
+        throw new Error("Failed to fetch courses");
+      }
 
-			const courses = await response.json();
+      const courses = await response.json();
 
-			courseListContainer.innerHTML = "";
+      courseListContainer.innerHTML = "";
 
-			courses.forEach((course) => {
-				const card = document.createElement("div");
-				card.classList.add("card");
+      courses.forEach((course) => {
+        const card = document.createElement("div");
+        card.classList.add("card");
 
-				const title = document.createElement("h2");
-				title.textContent = course.courseId;
+        const title = document.createElement("h2");
+        title.textContent = course.courseId;
 
-				const department = document.createElement("p");
-				department.textContent = `Department: ${course.department}`;
+        const department = document.createElement("p");
+        department.textContent = `Department: ${course.department}`;
 
-				const teacher = document.createElement("p");
-				teacher.textContent = `Created by: ${course.teacherName}`;
+        const teacher = document.createElement("p");
+        teacher.textContent = `Created by: ${course.teacherName}`;
 
-				const reviewButton = document.createElement("button");
-				reviewButton.textContent = "Give Review";
-				reviewButton.addEventListener("click", () => {
-					window.location.href = `/feedbackForm.html?courseCode=${course.courseId}&teacherEmail=${course.createdByEmail}`;
-				});
+        const reviewButton = document.createElement("button");
+        reviewButton.textContent = "Give Review";
+        reviewButton.addEventListener("click", () => {
+          window.location.href = `/feedbackForm.html?courseCode=${course.courseId}&teacherEmail=${course.createdByEmail}&std_id=${std_id}`;
+        });
 
-				card.appendChild(title);
-				card.appendChild(department);
-				card.appendChild(teacher);
-				card.appendChild(reviewButton);
+        const updateReviewButton = document.createElement("button");
+        updateReviewButton.textContent = "Update Review";
+        updateReviewButton.addEventListener("click", () => {
+          window.location.href = `/updateReviewForm.html?courseCode=${course.courseId}&teacherEmail=${course.createdByEmail}&std_id=${std_id}`;
+        });
 
-				courseListContainer.appendChild(card);
-			});
-		} catch (error) {
-			console.error("Error fetching courses:", error);
-			alert("An error occurred while fetching courses.");
-		}
-	};
+        card.appendChild(title);
+        card.appendChild(department);
+        card.appendChild(teacher);
+        card.appendChild(reviewButton);
+        card.appendChild(updateReviewButton);
 
-	filterButton.addEventListener("click", () => {
-		const department = departmentFilter.value.trim();
-		const teacherName = teacherFilter.value.trim();
-		fetchCourses(department, teacherName);
-	});
+        courseListContainer.appendChild(card);
+      });
+    } catch (error) {
+      console.error("Error fetching courses:", error);
+      alert("An error occurred while fetching courses.");
+    }
+  };
 
-	homeButton.addEventListener("click", async (event) => {
-		event.preventDefault();
+  filterButton.addEventListener("click", () => {
+    const department = departmentFilter.value.trim();
+    const teacherName = teacherFilter.value.trim();
+    fetchCourses(department, teacherName);
+  });
 
-		try {
-			const response = await fetch("/users/logout", {
-				method: "POST",
-				headers: {
-					"Content-Type": "application/json",
-				},
-			});
+  homeButton.addEventListener("click", async (event) => {
+    event.preventDefault();
 
-			if (response.ok) {
-				window.location.href = "/";
-			} else {
-				alert("Logout failed. Please try again.");
-			}
-		} catch (error) {
-			console.error("Error during logout:", error);
-			alert("An error occurred. Please try again.");
-		}
-	});
+    try {
+      const response = await fetch("/users/logout", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
 
-	fetchCourses();
+      if (response.ok) {
+        window.location.href = "/";
+      } else {
+        alert("Logout failed. Please try again.");
+      }
+    } catch (error) {
+      console.error("Error during logout:", error);
+      alert("An error occurred. Please try again.");
+    }
+  });
+
+  fetchCourses();
 });
