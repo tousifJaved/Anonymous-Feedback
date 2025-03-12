@@ -60,10 +60,10 @@ app.get("/teacherDashboard", authenticateTeacher, (req, res) => {
   res.sendFile(path.join(__dirname, "../frontend/teacherDashboard.html"));
 });
 
-// Student Dashboard route (secured)
-app.get("/studentDashboard", authenticateStudent, (req, res) => {
+app.get("/studentDashboard/:std_id", authenticateStudent, (req, res) => {
   res.sendFile(path.join(__dirname, "../frontend/studentDashboard.html"));
 });
+
 
 // Connect to MongoDB
 mongoose

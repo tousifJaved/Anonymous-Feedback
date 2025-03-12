@@ -43,35 +43,43 @@ router.post("/register/:role", async (req, res) => {
 });
 
 router.post("/login/:role", async (req, res) => {
-	const { role } = req.params;
-	const { email, password } = req.body;
+  const { role } = req.params;
+  const { email, password } = req.body;
 
-	try {
-		const user = await (role === "teacher"
-			? Teacher.findOne({ email })
-			: Student.findOne({ email }));
+  try {
+    const user = await (role === "teacher"
+      ? Teacher.findOne({ email })
+      : Student.findOne({ email }));
 
-		if (!user) {
-			return res.status(401).json({ message: "Invalid credentials" });
-		}
+    if (!user) {
+      return res.status(401).json({ message: "Invalid credentials" });
+    }
 
-		if (password !== user.password) {
-			return res.status(401).json({ message: "Invalid credentials" });
-		}
+    if (password !== user.password) {
+      return res.status(401).json({ message: "Invalid credentials" });
+    }
 
-		req.session.user = {
-			id: user._id,
-			email: user.email,
-			name: user.name,
-			role: role,
-		};
+    req.session.user = {
+      id: user._id,
+      email: user.email,
+      name: user.name,
+      role: role,
+    };
 
-		res.status(200).json({ message: "Login successful", role });
-	} catch (error) {
-		console.error("Error logging in user:", error);
-		res.status(500).json({ message: "Internal server error" });
-	}
+    if (role === "student") {
+      req.session.user.std_id = user.std_id; // Store std_id in session
+      res
+        .status(200)
+        .json({ message: "Login successful", role, std_id: user.std_id });
+    } else {
+      res.status(200).json({ message: "Login successful", role });
+    }
+  } catch (error) {
+    console.error("Error logging in user:", error);
+    res.status(500).json({ message: "Internal server error" });
+  }
 });
+
 
 // POST /users/logout
 router.post("/logout", (req, res) => {
