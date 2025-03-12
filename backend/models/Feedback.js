@@ -4,6 +4,7 @@ const Schema = mongoose.Schema;
 const feedbackSchema = new Schema({
 	teacherEmail: { type: String, required: true },
 	courseCode: { type: String, required: true },
+	std_id: {type: String, required: true},
 	ratings: {
 		teachingStyle: { type: Number, required: true },
 		courseContent: { type: Number, required: true },
@@ -12,6 +13,7 @@ const feedbackSchema = new Schema({
 		studentEngagement: { type: Number, required: true },
 	},
 	comment: { type: String },
+
 });
 
 const Feedback = mongoose.model("Feedback", feedbackSchema);

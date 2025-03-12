@@ -33,8 +33,8 @@ router.get("/updateReviewForm", authenticateStudent, (req, res) => {
 });
 
 // POST /studentFeedback route to handle feedback submission
-router.post("/studentFeedback", authenticateStudent, async (req, res) => {
-  const { teacherEmail, courseCode, std_id, ratings, comment } = req.body;
+router.post("/", authenticateStudent, async (req, res) => {
+  const { ratings, comment, teacherEmail, courseCode, std_id } = req.body;
 
   try {
     const newFeedback = new Feedback({

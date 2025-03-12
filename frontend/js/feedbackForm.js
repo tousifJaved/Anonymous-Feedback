@@ -5,6 +5,7 @@ document.addEventListener("DOMContentLoaded", () => {
 	const urlParams = new URLSearchParams(window.location.search);
 	const courseCode = urlParams.get("courseCode");
 	const teacherEmail = urlParams.get("teacherEmail");
+	const std_id = urlParams.get("std_id");
 
 	feedbackForm.addEventListener("submit", async (event) => {
 		event.preventDefault();
@@ -36,6 +37,7 @@ document.addEventListener("DOMContentLoaded", () => {
 			comment,
 			teacherEmail,
 			courseCode,
+			std_id,
 		});
 
 		try {
@@ -44,7 +46,7 @@ document.addEventListener("DOMContentLoaded", () => {
 				headers: {
 					"Content-Type": "application/json",
 				},
-				body: JSON.stringify({ ratings, comment, teacherEmail, courseCode }),
+				body: JSON.stringify({ ratings, comment, teacherEmail, courseCode, std_id }),
 			});
 
 			if (!response.ok) {
@@ -53,7 +55,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
 			const result = await response.json();
 			alert(result.message);
-			window.location.href = "/studentDashboard"; // Redirect to student dashboard
 		} catch (error) {
 			console.error("Error submitting feedback:", error);
 			alert("An error occurred. Please try again.");
