@@ -52,18 +52,12 @@ Before you begin, ensure you have met the following requirements:
 - You have a MongoDB database set up and running.
 
 ### Installation
-1. Install the dependencies:
-
-   ```sh
-   npm install express nodemon mongoose express-session
-   ```
-
-2. Configure the database connection:
+1. Configure the database connection:
     - Open mongodb compass and connect to localhost
     - Copy the connection string and your desired databse name in app.js file in the mongodb Connect part
       - In my code I have used "mongodb://localhost:27017/sample"
 
-3. Start the server:
+2. Start the server:
 
    ```sh
    nodemon app.js
@@ -73,7 +67,7 @@ Before you begin, ensure you have met the following requirements:
    npx nodemon server.js
    ```
 
-4. Open your browser and navigate to `http://localhost:3000`.
+3. Open your browser and navigate to `http://localhost:3000`.
 
 ## Usage
 
